@@ -36,7 +36,7 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 
 	private JTable tableNhanVien;
 	private DefaultTableModel modelNhanVien;
-
+	private DefaultTableModel modelNhanViens;
 	private JTextField txtMaNV;
 	private JTextField txtHo;
 	private JTextField txtTen;
@@ -56,7 +56,7 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 
 	public NhanVien_GUI() {
 
-		// khởi tạo kết nối đến CSDL
+		// khá»Ÿi táº¡o káº¿t ná»‘i Ä‘áº¿n CSDL
 		try {
 			ConnectDB.getInstance().connect();
 		} catch (SQLException e) {
@@ -71,7 +71,7 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 		setLocationRelativeTo(null);
 
 		JLabel lblTieuDe;
-		lblTieuDe = new JLabel("THÔNG TIN NHÂN VIÊN");
+		lblTieuDe = new JLabel("THÃ”NG TIN NHÃ‚N VIÃŠN");
 		lblTieuDe.setFont(new Font("Arial", Font.BOLD, 20));
 		lblTieuDe.setForeground(Color.blue);
 
@@ -85,30 +85,30 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 		b11.add(lblTieuDe);
 		b.add(b1 = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(10));
-		b1.add(lblMaNV = new JLabel("Mã nhân viên:   "));
+		b1.add(lblMaNV = new JLabel("MÃ£ nhÃ¢n viÃªn:   "));
 		b1.add(txtMaNV = new JTextField());
 
 		b.add(b2 = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(10));
-		b2.add(lblHo = new JLabel("Họ "));
+		b2.add(lblHo = new JLabel("Há»� "));
 		b2.add(txtHo = new JTextField());
-		b2.add(new JLabel("Tên nhân viên: "));
+		b2.add(new JLabel("TÃªn nhÃ¢n viÃªn: "));
 		b2.add(txtTen = new JTextField());
 
 		b.add(b3 = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(10));
-		b3.add(lblTuoi = new JLabel("Tuổi: "));
+		b3.add(lblTuoi = new JLabel("Tuá»•i: "));
 		b3.add(txtTuoi = new JTextField());
-		b3.add(lblPhai = new JLabel("Phái: "));
-		b3.add(chkNu = new JCheckBox("Nữ"));
+		b3.add(lblPhai = new JLabel("PhÃ¡i: "));
+		b3.add(chkNu = new JCheckBox("Ná»¯"));
 
 		b.add(b4 = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(10));
-		b4.add(lblTienLuong = new JLabel("Tiền lương: "));
+		b4.add(lblTienLuong = new JLabel("Tiá»�n lÆ°Æ¡ng: "));
 		b4.add(txtTienLuong = new JTextField());
-		b4.add(new JLabel("Phòng Ban: "));
+		b4.add(new JLabel("PhÃ²ng Ban: "));
 		
-		//Tạo và đổ dữ liệu vào comboBox
+		//Táº¡o vÃ  Ä‘á»• dá»¯ liá»‡u vÃ o comboBox
 		b4.add(cboPhongBan = new JComboBox<String>());
 		cboPhongBan.setEditable(true);		
 		
@@ -121,7 +121,7 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 		b.add(Box.createVerticalStrut(10));
 		add(b, BorderLayout.NORTH);
 
-		String[] colHeader = { "Mã NV", "Họ NV", "Tên NV", "Tuổi", "Phái", "Lương", "Phòng ban" };
+		String[] colHeader = { "MÃ£ NV", "Há»� NV", "TÃªn NV", "Tuá»•i", "PhÃ¡i", "LÆ°Æ¡ng", "PhÃ²ng ban" };
 		modelNhanVien = new DefaultTableModel(colHeader, 0);
 		tableNhanVien = new JTable(modelNhanVien);
 		add(new JScrollPane(tableNhanVien), BorderLayout.CENTER);
@@ -138,13 +138,13 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 		p.add(pnlLeft = new JPanel());
 		p.add(pnlRight = new JPanel());
 
-		pnlLeft.add(lblTim = new JLabel("Nhập mã số cần tìm: "));
+		pnlLeft.add(lblTim = new JLabel("Nháº­p mÃ£ sá»‘ cáº§n tÃ¬m: "));
 		pnlLeft.add(txtTim = new JTextField(10));
-		pnlLeft.add(bttTim = new JButton("Tìm"));
+		pnlLeft.add(bttTim = new JButton("TÃ¬m"));
 
-		pnlRight.add(bttThem = new JButton("Thêm"));
-		pnlRight.add(bttXoaTrang = new JButton("Xóa trắng"));
-		pnlRight.add(bttXoa = new JButton("Xóa"));
+		pnlRight.add(bttThem = new JButton("ThÃªm"));
+		pnlRight.add(bttXoaTrang = new JButton("XÃ³a tráº¯ng"));
+		pnlRight.add(bttXoa = new JButton("XÃ³a"));
 		pnlRight.add(bttLuu = new JButton("Loc theo Ph Ban"));
 
 		bttTim.addActionListener(this);
@@ -167,7 +167,7 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 		}
 		if (o.equals(bttXoa)) {
 			int r = tableNhanVien.getSelectedRow();
-			modelNhanVien.removeRow(r); // xóa trong table model
+			modelNhanVien.removeRow(r); // xÃ³a trong table model
 
 		}
 		if (o.equals(bttXoaTrang)) {
@@ -195,7 +195,7 @@ public class NhanVien_GUI extends JFrame implements ActionListener, MouseListene
 		txtHo.setText(modelNhanVien.getValueAt(row, 1).toString());
 		txtTen.setText(modelNhanVien.getValueAt(row, 2).toString());
 		txtTuoi.setText(modelNhanVien.getValueAt(row, 3).toString());
-		chkNu.setSelected(modelNhanVien.getValueAt(row, 4).toString() == "Nữ" ? true : false);
+		chkNu.setSelected(modelNhanVien.getValueAt(row, 4).toString() == "Ná»¯" ? true : false);
 		txtTienLuong.setText(modelNhanVien.getValueAt(row, 5).toString());
 		cboPhongBan.setSelectedItem(modelNhanVien.getValueAt(row, 6).toString());
 	}
